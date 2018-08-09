@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LineConsolidationLog, LineConsolidationSnapshot, LineConsolidationAlteration, LineConsolidationAction } from 'app/models/log-vm';
+import { LineConsolidationLog, LineConsolidationAlteration, LineConsolidationSnapshot, LineConsolidationAction } from 'app/models/log-vm';
 
 @Component({
   selector: 'blah-root',
@@ -7,7 +7,6 @@ import { LineConsolidationLog, LineConsolidationSnapshot, LineConsolidationAlter
   styleUrls: ['./app.component.less']
 })
 export class AppComponent {
-
   public lineVm: LineConsolidationLog;
 
   constructor() {

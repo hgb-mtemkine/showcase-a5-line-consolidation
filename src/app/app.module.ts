@@ -1,10 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
 import { AppComponent } from './app.component';
-import { AnimateLineConsolidationComponent } from './animate-line-consolidation/animate-line-consolidation.component';
-
+import { AnimateLineConsolidationComponent } from 'app/animate-line-consolidation/animate-line-consolidation.component';
 
 @NgModule({
   declarations: [
