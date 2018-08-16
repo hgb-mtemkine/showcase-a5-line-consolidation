@@ -1,16 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 
 import { AppComponent } from './app.component';
 import { AnimateLineConsolidationComponent } from 'app/animate-line-consolidation/animate-line-consolidation.component';
+import { SliderframeComponent } from './sliderframe/sliderframe.component';
+import {CarouselModule} from "angular2-carousel";
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AnimateLineConsolidationComponent
+    AnimateLineConsolidationComponent,
+    SliderframeComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    CarouselModule,
+    BrowserAnimationsModule,
+    Ng2CarouselamosModule
   ],
   providers: [],
   bootstrap: [AppComponent]
