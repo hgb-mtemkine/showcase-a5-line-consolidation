@@ -4,7 +4,6 @@ import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 
 import { AppComponent } from './app.component';
 import { AnimateLineConsolidationComponent } from 'app/animate-line-consolidation/animate-line-consolidation.component';
-import { SliderframeComponent } from './sliderframe/sliderframe.component';
 import {CarouselModule} from "angular2-carousel";
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -12,8 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
-    AnimateLineConsolidationComponent,
-    SliderframeComponent
+    AnimateLineConsolidationComponent
   ],
   imports: [
     BrowserModule,
