@@ -20,3 +20,8 @@ export class LineConsolidationAlteration {
   action: LineConsolidationAction;
   text: string;
 }
+
+export class LineModify {
+  index: number;
+  text: string[];
+}

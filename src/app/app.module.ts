@@ -7,6 +7,7 @@ import { AnimateLineConsolidationComponent } from 'app/animate-line-consolidatio
 import {CarouselModule} from "angular2-carousel";
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LevensteinService } from 'app/levenstein.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     Ng2CarouselamosModule
   ],
-  providers: [],
+  providers: [LevensteinService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  
+}

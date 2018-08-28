@@ -8,65 +8,83 @@
     {{lineVm.snapshots[0].lines | json}}
     <blah-animate-line-consolidation [vm]="lineVm.snapshots[0].lines"></blah-animate-line-consolidation>
   </div>
-  
 
-  <br/>
-
-  <h3>-- OG CAROUSEL --</h3>
-
-   https://www.npmjs.com/package/angular2-carousel 
-  <carousel-component >
-    <div *ngFor="let snapshot of lineVm.snapshots" class="item-carousel">
-        <div *ngFor="let line of snapshot.lines" >
-            {{line}}
-          </div> 
-    </div>
-  </carousel-component>
 -->
 
   <br/>
+
   <h3>-- TEST --</h3>
   
   <div id="container">
-    <div ng2-carouselamos class="slides-wrapper"
+    <div 
+        ng2-carouselamos class="slides-wrapper"
         [items]="items"
         [width]="900"
         [$prev]="prev"
         [$next]="next"
-        [$item]="item">
-    </div>
+        [$item]="item"
+        (onSelectedItem)="selectedItem = $event.item; selectedIndex = $event.index"
+        ></div>
   </div>
 
   <ng-template #prev>
     <img src="assets/images/left-arrow.png" id="left">
   </ng-template>
 
-  <ng-template #next>
-      <img src="assets/images/right-arrow.png" id="right">
+  <ng-template #next class="arrow">
+    <img src="assets/images/right-arrow.png" id="right">
   </ng-template>
 
-  <ng-template #item let-item let-i="index">
+  <ng-template #item let-item let-i="index" >
     <div class="items row">
-        <div class="column"> <div *ngFor="let line of item.lines" > {{line}} </div> </div>
-
+      <!-- A -->
+        <div class="column"> <div  class="line" *ngFor="let line of item.lines" > {{line}} </div> </div>
+      <!-- B -->
         <div class="column"> 
-            <div *ngFor="let line of item.lines; let l = index" [attr.data-index]="l" > 
-              <!-- <div *ngIf="(remArr[i] == 1000); then plain "></div> -->
-              <div *ngIf="(remArr[i] == l); then highlight else plain "></div>
-              <ng-template #highlight ><span style="background-color: red; color:white">{{line}}</span></ng-template>
+            <div class="line" *ngFor="let line of item.lines; let l = index" [attr.data-index]="l" > 
+              <div *ngIf="(remArr[i] == l); then highlight else modified "></div>
+              <ng-template #modified>
+                <div *ngIf="(subNew[i].index == l); then modifiedYa else plain "></div>
+              </ng-template>
+
+              <ng-template #highlight ><div style="background-color: red; color:white">{{line}}</div></ng-template>
+              <ng-template #modifiedYa>{{subNew[i].text[0]}} <span style="background-color: #28B463; color: white">{{subNew[i].text[1]}}</span> {{subNew[i].text[2]}}</ng-template>
               <ng-template #plain>{{line}}</ng-template>
             </div> 
           </div>
-
+      <!-- C -->
         <div class="column"> 
-          <div *ngFor="let line of item.lines; let l = index" [attr.data-index]="l" > 
-            <!-- <div *ngIf="(remArr[i] == 1000); then plain "></div> -->
-            <div *ngIf="(remArr[i] == l); then highlight else plain "></div>
-            <ng-template #highlight><div class="disappear">{{line}}</div></ng-template>
+          <div  class="line" *ngFor="let line of item.lines; let l = index" [attr.data-index]="l" > 
+            <div *ngIf="((remArr[i] == l) && (i === selectedIndex)); then highlightactive else modified "></div>
+            <ng-template #modified>
+              <div *ngIf="((subNew[i].index == l)  && (i === selectedIndex)); then modifiedYa else plain "></div>
+            </ng-template>
+            <ng-template #highlightactive><div class="disappear-active">{{line}}</div></ng-template>
+            <ng-template #modifiedYa>{{subNew[i].text[0]}} <span class="fadeIn">{{subNew[i].text[1]}}</span> {{subNew[i].text[2]}}</ng-template>
             <ng-template #plain>{{line}}</ng-template> 
           </div> 
         </div>
     </div>
   </ng-template>
+
+  <script>
+
+    /*
+    <div *ngIf="(remArr[i] == l); then highlightactive else modified "></div>
+            <ng-template #modified>
+              <div *ngIf="(subNew[i].index == l); then modifiedYa else plain "></div>
+            </ng-template>
+
+    <div *ngIf="(remArr[i] == l); else plain ">
+                <div *ngIf="( i==0); then highlightactive else highlight "></div>
+            </div>
+            <ng-template #highlightactive><div class="disappear-active">{{line}}</div></ng-template>
+            <ng-template #highlight><div class="disappear">{{line}}</div></ng-template>
+            <ng-template #plain>{{line}}</ng-template> 
+
+    
+    */
+
+  </script>
 
 </body>

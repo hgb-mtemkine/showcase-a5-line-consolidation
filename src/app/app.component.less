@@ -5,9 +5,9 @@
 
 body {
     font-family: 'IBM Plex Mono', monospace;
-
 }
 
+//https://www.youtube.com/watch?v=fkmS9Pq7Sww
 #container {
     width:100%;
     margin: 5em auto;
@@ -16,18 +16,24 @@ body {
 }
 
 .items {
-    min-width: 900px;
+    min-width: 930px;
     height: 300px;
-    background: #ececec;
-    font-size:1em;
-    padding: 1%;
+    font-size:0.8em;
+    padding: 0%;
 }
 
 .column {
     float: left;
-    width: 33.33%;
-    padding: 40px;
-    height: 300px; /* Should be removed. Only for demonstration */
+    width: 31.33%;
+    padding: 30px;
+    margin: 0.7%;
+    height: 300px; 
+    background: #ececec;
+
+    .line {
+        margin-bottom: 10px;
+    }
+    
 }
 
 .row:after {
@@ -40,38 +46,72 @@ body {
     margin: 30px;
 }
 
-
-
 .slides-wrapper {
     margin: 2%;
     border-style: solid;
     padding: 2%;
 }
 
+div.disappear-active {
+    background: red;
+    padding: 1px;
+    color: white;
+    position :relative;
+    -webkit-animation: fadeOut 5s forwards; /* Safari 4.0 - 8.0 */
+    animation: fadeOut 5s forwards;
+}
 
 div.disappear {
     background: red;
     padding: 1px;
     color: white;
     position :relative;
-    -webkit-animation: fadeOut 4s forwards; /* Safari 4.0 - 8.0 */
-    animation: fadeOut 4s forwards;
-    
+    //-webkit-animation: fadeOut 4s forwards; /* Safari 4.0 - 8.0 */
+    //animation: fadeOut 4s forwards;
 }
 
 /* Safari 4.0 - 8.0 */
 @-webkit-keyframes fadeOut {
     from {max-height: 100px}
-    to {max-height: 0px; opacity: 0;}
+    to {max-height: 0px; opacity: 0; display: none; margin-bottom: 0px;}
 }
 
 /* Standard syntax */
 @keyframes fadeOut {
     from {max-height: 100px}
-    to {max-height: 0px; opacity: 0;}
+    to {max-height: 0px; opacity: 0; margin-bottom: 0px;}
 }
 
+@-webkit-keyframes fadeIn {
+    from {width: 0px; opacity: 0; }
+    to {width: 1000px; opacity: 1; }
+}
 
+/* Standard syntax */
+@keyframes fadeIn {
+    from {width: 0px; opacity: 0; }
+    to {width: 1000px; opacity: 1; }
+}
+
+.fadeIn {
+    background: #28B463;
+    height: 100%;
+    padding: 1px;
+    color: white;
+    position :relative;
+    transform-origin: left;
+    transition-delay: 2s;
+    -webkit-animation: fadeIn 4s forwards; /* Safari 4.0 - 8.0 */
+    animation: fadeIn 4s forwards;
+}
+
+#left, #right :active {
+    margin: 30px;
+}
+
+.row {
+    margin: 0.1%;
+}
 
 
   
