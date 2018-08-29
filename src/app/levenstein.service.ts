@@ -154,15 +154,16 @@ export class LevensteinService {
     return fragments;
   }
 
-  splitIntoRegions(sssA: string, sssB: string, tokens: number[] ): string[]{
+  splitIntoRegions(sssA: string, sssB: string, tokens: number[], last: number ): string[]{
+    var lll = tokens[0] + last;
     if (tokens[0] > sssA.length ) {
       let lineC = sssB.substring(tokens[0], tokens[tokens.length - 1]);
       return [sssA, lineC, ""];
 
     } else {
-      let lineA = sssA.substring(0, tokens[0]-1);
-      let lineB = sssB.substring(tokens[tokens.length - 1], (sssB.length));
-      let lineC = sssB.substring(tokens[0], tokens[tokens.length - 1]);
+      let lineA = sssB.substring(0, tokens[0]-3);
+      let lineB = sssB.substring(lll-1, (sssB.length));
+      let lineC = "--"+sssB.substring(tokens[0]-1, lll-1);
       //console.log(lineC);
       return [lineA, lineC, lineB];
     }
@@ -187,8 +188,3 @@ export class LevRegion {
   start: number;
   span: number;
 }
-
-/**
- * 
- * 
- */

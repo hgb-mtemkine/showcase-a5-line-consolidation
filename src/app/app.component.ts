@@ -1,19 +1,21 @@
 import { Component } from '@angular/core';
 import { LineConsolidationLog, LineConsolidationAlteration, LineConsolidationSnapshot, LineConsolidationAction, LineModify } from 'app/models/log-vm';
 import { LevensteinService } from 'app/levenstein.service';
-import { temporaryAllocator } from '@angular/compiler/src/render3/view/util';
+import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 
 @Component({
   selector: 'blah-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.less']
 })
+
 export class AppComponent {
   public lineVm: LineConsolidationLog;
   items: any[];
   public remArr: any[];
   public subNew: LineModify[];
   public currentSlide: number = 1;
+  public selectedIndex: number;
 
   constructor(
     private levService: LevensteinService,
@@ -62,7 +64,7 @@ export class AppComponent {
           ],
           alterations: [
             <LineConsolidationAlteration> { index: 2, action: LineConsolidationAction.Remove },
-            <LineConsolidationAlteration> { index: 0, action: LineConsolidationAction.Modify, text: 'flight --from miami --date feb 13th --to quito --airline Cathay Pacific --time-depart 3:35 pm' },
+            <LineConsolidationAlteration> { index: 0, action: LineConsolidationAction.Modify, text: 'flight --from miami --date feb 13th --airline Cathay Pacific --to quito --time-depart 3:35 pm' },
           ]
         },
         
@@ -76,6 +78,7 @@ export class AppComponent {
 
   //receive lineVm and return array of indexes to be removed
   removeFound(lv: LineConsolidationLog): Array<number>{
+    var lastIndex: number;
     var numRem:number[] = [];
     var temp:LineModify[] = [];
     var i:number = 0; //number of snapshots
@@ -83,21 +86,27 @@ export class AppComponent {
       i++;
       for (let alt of snap.alterations) {
         if(alt.action === LineConsolidationAction.Remove ) {  
+          if(snap.lines[alt.index].includes("flight")) {
+            lastIndex = snap.lines[alt.index].length -9; //flight
+          } else {
+            lastIndex = snap.lines[alt.index].length -8; //hotel
+          }
           numRem.push(alt.index);
         } else if (alt.action === LineConsolidationAction.Modify){
           let sssA = String(snap.lines[alt.index]); //old
           let sssB = String(alt.text);   //new
           let levensteinData = this.levService.computeLevensteinDiff(sssA, sssB);
           let fragments = this.levService.stringToFragments(sssB, levensteinData.rogueIndicesB);
-          console.log(fragments[0].text);
-          console.log(sssB.substring(levensteinData.rogueIndicesB[0], levensteinData.rogueIndicesB[levensteinData.rogueIndicesB.length -1] ));
 
           temp.push({ index: alt.index , 
-                      text: this.levService.splitIntoRegions(sssA, sssB, levensteinData.rogueIndicesB), 
+                      text: this.levService.splitIntoRegions(sssA, sssB, levensteinData.rogueIndicesB, lastIndex), 
                     }); 
             //console.log(sssA);
             //console.log(sssB);
             //console.log(levensteinData.rogueIndicesB);
+            //console.log(fragments[0].text);
+            //console.log(sssB.substring(levensteinData.rogueIndicesB[0], levensteinData.rogueIndicesB[levensteinData.rogueIndicesB.length -1] ));
+
           //debugger;
         }
       }

@@ -57,8 +57,8 @@ div.disappear-active {
     padding: 1px;
     color: white;
     position :relative;
-    -webkit-animation: fadeOut 5s forwards; /* Safari 4.0 - 8.0 */
-    animation: fadeOut 5s forwards;
+    -webkit-animation: fadeOut 3s forwards; /* Safari 4.0 - 8.0 */
+    animation: fadeOut 3s forwards;
 }
 
 div.disappear {
@@ -83,14 +83,14 @@ div.disappear {
 }
 
 @-webkit-keyframes fadeIn {
-    from {width: 0px; opacity: 0; }
-    to {width: 1000px; opacity: 1; }
+    from {font-size: 0px; opacity: 0; }
+    to {font-size: 100%; opacity: 1; }
 }
 
 /* Standard syntax */
 @keyframes fadeIn {
-    from {width: 0px; opacity: 0; }
-    to {width: 1000px; opacity: 1; }
+    from {font-size: 0px; opacity: 0; }
+    to {font-size: 100%; opacity: 1; }
 }
 
 .fadeIn {
