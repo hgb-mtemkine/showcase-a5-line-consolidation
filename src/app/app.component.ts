@@ -3,6 +3,8 @@ import { LineConsolidationLog, LineConsolidationAlteration, LineConsolidationSna
 import { LevensteinService } from 'app/levenstein.service';
 import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 
+import * as JsDiff from 'diff';
+
 @Component({
   selector: 'blah-root',
   templateUrl: './app.component.html',
@@ -14,7 +16,6 @@ export class AppComponent {
   items: any[];
   public remArr: any[];
   public subNew: LineModify[];
-  public currentSlide: number = 1;
   public selectedIndex: number;
 
   constructor(
@@ -58,13 +59,13 @@ export class AppComponent {
         },
         <LineConsolidationSnapshot> {
           lines: [
-            'flight --from miami --date feb 13th --to quito --time-depart 3:35 pm',
+            'flight --from miami --date feb 13th',
             'flight --to manila --from tokyo --time-depart 7:10 am --time-arrival 11:35 am --date feb 24th',
-            'flight --airline Cathay Pacific',
+            'flight --airline Cool Beans Are Great --time-arrival 3:59 pm',
           ],
           alterations: [
             <LineConsolidationAlteration> { index: 2, action: LineConsolidationAction.Remove },
-            <LineConsolidationAlteration> { index: 0, action: LineConsolidationAction.Modify, text: 'flight --from miami --date feb 13th --airline Cathay Pacific --to quito --time-depart 3:35 pm' },
+            <LineConsolidationAlteration> { index: 0, action: LineConsolidationAction.Modify, text: 'flight --from miami --airline cathay almonds --time-depart 3:35 pm --date feb 13th' },
           ]
         },
         
@@ -99,14 +100,13 @@ export class AppComponent {
           let fragments = this.levService.stringToFragments(sssB, levensteinData.rogueIndicesB);
 
           temp.push({ index: alt.index , 
-                      text: this.levService.splitIntoRegions(sssA, sssB, levensteinData.rogueIndicesB, lastIndex), 
+                      text: this.levService.splitIntoRegions(sssA, sssB, levensteinData.rogueIndicesB), 
                     }); 
             //console.log(sssA);
             //console.log(sssB);
+            //console.log(levensteinData);
+            //console.log(fragments);
             //console.log(levensteinData.rogueIndicesB);
-            //console.log(fragments[0].text);
-            //console.log(sssB.substring(levensteinData.rogueIndicesB[0], levensteinData.rogueIndicesB[levensteinData.rogueIndicesB.length -1] ));
-
           //debugger;
         }
       }

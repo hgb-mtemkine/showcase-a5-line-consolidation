@@ -4,6 +4,10 @@ import { LevensteinService } from 'app/levenstein.service';
 
 var sssA = "I like to eat";
 var sssB = "I like to eat crayons";
+var sssC = "I went to the beach with my girls";
+var sssD = "I walked along the boardwalk today at 10 o'clock with my girls";
+var sssE = "HEYZZ";
+var sssF = "HAELLOY";
 
 
 describe('AppComponent', () => {
@@ -23,8 +27,15 @@ describe('LevensteinService', () => {
 
   it('#getValue should return real value', () => {
     expect(service.computeLevensteinDiff(
-      'flight --from miami --date feb 13th --to quito --time-depart 3:35 pm', 
-      'flight --from miami --date feb 13th --cool beans are great --to quito --time-depart 3:35 pm').rogueIndicesB).toBe([39,50,51,52,53,49]);
+      sssC, 
+      sssD).rogueIndicesB).toBe([3,34]);
+  });
+  it('#getValue should return real value', () => {
+    expect(service.splitIntoRegions(
+      sssC,
+      sssD, 
+      service.computeLevensteinDiff( 
+        sssC, sssD).rogueIndicesB)[1]).toBe("alked along the boardwalk today at 10 o'clock");
   });
   it('#getValue should return real value', () => {
     expect("hello").toBe( "hello");
@@ -33,16 +44,25 @@ describe('LevensteinService', () => {
     expect(service.splitIntoRegions(
       sssA, 
       sssB, 
-      service.computeLevensteinDiff( sssA, sssB).rogueIndicesB, 29 )[1]).toBe("crayons");
+      service.computeLevensteinDiff( sssA, sssB).rogueIndicesB)[1]).toBe("crayons");
+  });
+  it('#getValue should return real value', () => {
+    expect(service.computeLevensteinDiff(
+      sssE, 
+      sssF).rogueIndicesB).toBe([1, 7]);
   });
   it('#getValue should return real value', () => {
     expect(service.splitIntoRegions(
-      'flight --from miami --date feb 13th --to quito --time-depart 3:35 pm', 
-      'flight --from miami --date feb 13th --cool beans are great --to quito --time-depart 3:35 pm', 
-      service.computeLevensteinDiff( 
-        'flight --from miami --date feb 13th --to quito --time-depart 3:35 pm', 
-        'flight --from miami --date feb 13th --cool beans are great --to quito --time-depart 3:35 pm').rogueIndicesB, 19)[1]).toBe("cool beans are great");
+      sssE, 
+      sssF, 
+      service.computeLevensteinDiff(sssE, sssF).rogueIndicesB)[0] + " " + service.splitIntoRegions(
+        sssE, 
+        sssF, 
+        service.computeLevensteinDiff(sssE, sssF).rogueIndicesB)[1]
+      ).toBe("H AELLOY");
   });
+  
+  
   
 /**
  * 

@@ -33,23 +33,25 @@ export class LevensteinService {
     for (let i: number = 1; i <= na; i++) {
         // Step 4
         for (let j: number = 1; j <= nb; j++) {
-            //  Step 5
-            let cost = (b[j - 1] == a[i - 1]) ? 0 : 1;
-            //  Step 6
-
-            d[i][j] = Math.min(
-              d[i - 1][j] + 1,
-              d[i][j - 1] + 1,
-              d[i - 1][j - 1] + cost
-            );
+          //  Step 5
+            if (b.charAt(j-1) === a.charAt(i-1)){
+              d[i][j] = d[i-1][j-1];
+            }//  Step 6
+            else {
+              d[i][j] = Math.min(
+                d[i - 1][j] + 1,
+                d[i][j - 1] + 1,
+                d[i - 1][j - 1] + 1 
+              );}
         }
     }
-
     //  Step 7 - crawl the matrix back to determine rogue indices
     let rogueIndicesA = [];
     let rogueIndicesB = [];
     let iii = na;
     let jjj = nb;
+    //console.log("iii: " + iii + " jjj: " + jjj);
+
     while(iii > 0 || jjj > 0) {
       //console.log(`${iii}, ${jjj}`);
       //console.log(rogueIndicesB);
@@ -60,21 +62,33 @@ export class LevensteinService {
           d[iii][jjj - 1], //insertion
           d[iii - 1][jjj - 1] //substitution
         );
+        console.log(minBacktrack);
         if (minBacktrack == d[iii][jjj]) {
+          iii--;
+          jjj--;
+          console.log("noop");
+          continue;
+        }
+        if (minBacktrack == d[iii][jjj - 1] && minBacktrack == d[iii][jjj]) {
+          console.log("minBacktrack: " + minBacktrack + " d[iii][jjj-1] && d[iii][jjj]: " + [iii,jjj]);
+          //rogueIndicesB.push(jjj);
           iii--;
           jjj--;
           continue;
         }
-        if (minBacktrack == d[iii - 1][jjj]) {
-          rogueIndicesA.push(iii);
-          iii--;
-          continue;
-        }
         if (minBacktrack == d[iii][jjj - 1]) {
+          console.log("minBacktrack: " + minBacktrack + " d[iii][jjj-1]: " + [iii,jjj]);
           rogueIndicesB.push(jjj);
           jjj--;
           continue;
         }
+        if (minBacktrack == d[iii - 1][jjj]) {
+          console.log("minBacktrack: " + minBacktrack + " d[iii-1][jjj]: " + [iii,jjj]);
+          rogueIndicesA.push(iii);
+          iii--;
+          continue;
+        }
+        //console.log(minBacktrack);
         rogueIndicesA.push(iii);
         rogueIndicesB.push(jjj);
         iii--;
@@ -89,7 +103,7 @@ export class LevensteinService {
         jjj--;
       }
     }
-    console.log(rogueIndicesB);
+    //console.log(rogueIndicesB);
     console.log(d);
 
     //  Step 8
@@ -138,11 +152,13 @@ export class LevensteinService {
           isRogue: false,
           sourceIndex: -1,
         });
-      fragments.push(<LevensteinStringFragment> {
-        text: sss.substring(region.start - offset, region.start + region.span - offset),
-        isRogue: true,
-        sourceIndex: i,
-      });
+      else {
+        fragments.push(<LevensteinStringFragment> {
+          text: sss.substring(region.start - offset, region.start + region.span - offset),
+          isRogue: true,
+          sourceIndex: i,
+        });
+      }
       lastStart = region.start + region.span - offset;
     }
     if (lastStart < sss.length)
@@ -154,17 +170,17 @@ export class LevensteinService {
     return fragments;
   }
 
-  splitIntoRegions(sssA: string, sssB: string, tokens: number[], last: number ): string[]{
-    var lll = tokens[0] + last;
+  splitIntoRegions(sssA: string, sssB: string, tokens: number[]): string[]{
     if (tokens[0] > sssA.length ) {
       let lineC = sssB.substring(tokens[0], tokens[tokens.length - 1]);
       return [sssA, lineC, ""];
 
     } else {
-      let lineA = sssB.substring(0, tokens[0]-3);
-      let lineB = sssB.substring(lll-1, (sssB.length));
-      let lineC = "--"+sssB.substring(tokens[0]-1, lll-1);
+      let lineA = sssB.substring(0, tokens[0]-1);
+      let lineB = sssB.substring(tokens[tokens.length-1], (sssB.length));
+      let lineC = sssB.substring(tokens[0]-1, tokens[tokens.length-1]);
       //console.log(lineC);
+     // console.log(tokens);
       return [lineA, lineC, lineB];
     }
 

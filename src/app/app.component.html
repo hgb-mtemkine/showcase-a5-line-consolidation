@@ -1,8 +1,4 @@
 <body>
-  <head>
-    <h1>      <title>showcase-a6-line-consolidation</title>
-    </h1>
-  </head>
   
   <h1>Line consolidation animation test</h1>
 
@@ -37,22 +33,6 @@
 
   <ng-template #item let-item let-i="index" >
     <div class="items row">
-      <!-- A -->
-        <div class="column"> <div  class="line" *ngFor="let line of item.lines" > {{line}} </div> </div>
-      <!-- B -->
-        <div class="column"> 
-            <div class="line" *ngFor="let line of item.lines; let l = index" [attr.data-index]="l" > 
-              <div *ngIf="(remArr[i] == l); then highlight else modified "></div>
-              <ng-template #modified>
-                <div *ngIf="(subNew[i].index == l); then modifiedYa else plain "></div>
-              </ng-template>
-
-              <ng-template #highlight ><div style="background-color: red; color:white">{{line}}</div></ng-template>
-              <ng-template #modifiedYa>{{subNew[i].text[0]}} <span style="background-color: #28B463; color: white">{{subNew[i].text[1]}}</span> {{subNew[i].text[2]}}</ng-template>
-              <ng-template #plain>{{line}}</ng-template>
-            </div> 
-          </div>
-      <!-- C -->
         <div class="column"> 
           <div  class="line" *ngFor="let line of item.lines; let l = index" [attr.data-index]="l" > 
             <div *ngIf="((remArr[i] == l) && (i === this.selectedIndex)); then highlightactive else modified "></div>
