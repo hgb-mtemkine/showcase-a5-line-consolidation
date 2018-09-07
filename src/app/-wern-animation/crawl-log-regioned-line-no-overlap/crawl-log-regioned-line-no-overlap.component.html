@@ -1,0 +1,32 @@
+<span *ngFor="let fff of fragments"
+  class="fragment-con"
+  [ngClass]="{
+    'animate-fade-out' : (isFinalFrame && fff.sourceRegion?.Level != 100),
+    'animate-fade-out-later' : (isFinalFrame && fff.sourceRegion?.Level == 100)
+  }"
+  ><span *ngIf="fff.sourceRegion?.Level == 100"
+    class="pass3 hoverclickable"
+    (click)="onFragmentClicked(fff);"
+    ><span *ngFor="let fff2 of fff.innerFragments" class="fragment-con-inner"
+      ><span *ngIf="fff2.sourceRegion" class="pass2 pass2-inner hoverclickable" (click)="onFragmentClicked(fff2); $event.stopPropagation();"
+        ><span class="fragment-text">{{ fff2.text }}</span
+        ><span *ngIf="fff2.sourceRegion.Notes" class="show-on-hover hover-above hover-tiny-oneline">{{ fff2.sourceRegion.Notes }}</span
+      ></span
+      ><span *ngIf="!fff2.sourceRegion"
+        ><span class="fragment-text">{{ fff2.text }}</span
+      ></span
+    ></span
+    ><span *ngIf="fff.sourceRegion.Notes" class="show-on-hover hover-above hover-tiny-oneline">{{ fff.sourceRegion.Notes }}</span
+  ></span
+  ><span *ngIf="fff.sourceRegion && fff.sourceRegion.Level != 100" class="pass2 hoverclickable" (click)="onFragmentClicked(fff);"
+    ><span class="fragment-text">{{ fff.text }}</span
+    ><span *ngIf="fff.sourceRegion.Notes" class="show-on-hover hover-above hover-tiny-oneline">{{ fff.sourceRegion.Notes }}</span
+  ></span
+  ><span *ngIf="!fff.sourceRegion"
+    ><span class="fragment-text">{{ fff.text }}</span
+  ></span
+  ><span *ngIf="isFinalFrame && fff.sourceRegion?.Level == 100" class="cli-results"
+    ><span *ngFor="let pass3Result of fff.sourceRegionPass3.Pass3Results" class="cli-result">{{ pass3Result.RawTextOriginal }}</span
+  ></span
+  ><span *ngIf="isFinalFrame && fff.sourceRegion?.Level == 100" class="animate-show-halfway-br"></span
+></span>

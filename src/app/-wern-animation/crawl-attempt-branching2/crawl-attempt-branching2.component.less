@@ -1,0 +1,91 @@
+@cellW: 15px;
+@cellH: 30px;
+
+:host {
+
+  .crossword {
+    margin-bottom: @cellH;
+    font-family: monospace;
+    
+    .cells {
+      .wchar {
+        position: relative;
+        display: inline-block;
+        box-sizing: border-box;
+        //padding: 10px;
+        width: @cellW;
+        height: @cellH;
+        line-height: @cellH;
+        vertical-align: middle;
+        text-align: center;
+        background-color: white;
+        border: 1px solid black;
+  
+        &:not(:first-child) {
+          border-left: none;
+        }
+        &.wchar-ruleref {
+          width: auto;
+          padding-left: 5px;
+          padding-right: 5px;
+          background-color: #dcf8ff;
+        }
+      }
+  
+      &.main-chars1 .wchar:last-child {
+        border-bottom: none;
+        border-right: none;
+      }
+
+      &.success .wchar {
+        background-color: #dbffda;
+      }
+      // &.fail .wchar {
+      //   background-color: #ffc0c0;
+      // }
+  
+      &.main-chars2 {
+        .wchar {
+          background-color: #ddd;
+          border-left: none;
+        }
+        &.force-lborder .wchar:first-child {
+          border-left: 1px solid black;
+        }
+        &.success .wchar {
+          background-color: #52ff49;
+        }
+        &.fail .wchar {
+          background-color: #ff8181;
+        }
+      }
+    }
+  
+    @brachOffset: 15px;
+    @fadeinCurveW: @cellW;
+    @fadeinCurveH: 7px + @brachOffset; // NOTE: i dont get the math here myself... oh well
+  
+    .branch-con {
+      position: relative;
+      .branch {
+        position: absolute;
+        top: @brachOffset;
+        z-index: 1;
+        white-space: nowrap;
+      }
+      .ease-in {
+        position: absolute;
+        content: " ";
+        width: @fadeinCurveW;
+        height: @fadeinCurveH;
+        //background-color: red;
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAWCAIAAACQbVFOAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADySURBVDhPjdIxDkRAFMbxKaj0o9KJRKtyAkrhHNzAIVzBAbQanehEoaLRKF0AiWT3LU922ZnZ/SWS923+CskS0zR1Xe/7/vEHAs+2bYqiJEly/CTwqg+aphVFgYPjXQNCyDzPOFgudV3XQRDgYLnUQJZlvFjute/7VVXh+HKv13VVVRXHl3sNXNdtmgbHFaNu29ZxHBxXjBrwvpVdx3GcpimOD+waUErx+sCtLcvqug7HiVtP02TbNo4TtwaSJOF1EtVhGJZliWMnqsdxNAwDx05UA8/zsizD8bMG8KfH6596GAZ4Ic9zuH/XYFmWKIoopU9qUZS9fi7+2QAAAABJRU5ErkJggg==');
+        background-repeat: no-repeat;
+        z-index: -1;
+        left: -@fadeinCurveW;
+        bottom: 0;
+      }
+    }
+  }
+  
+}

@@ -1,0 +1,18 @@
+<span class="crawling-text-con"
+  ><!-- <span class="text-prefix">{{ textPrefix }}</span> 
+  --><span class="text-prefix"
+    ><my-crawl-log-regioned-line-no-overlap [fragments]="fragmentsPrefix" [isFinalFrame]="isLastFrame"></my-crawl-log-regioned-line-no-overlap
+  ></span
+  ><my-crawl-attempt-branching2
+    *ngIf="charrayText"
+    [text]="charrayText"
+    [branchRem]="vm.branchRem"
+    [convergeIndex]="vm.convergeIndex"
+    [isSuccess]="vm.isSuccess"
+    [isFailure]="vm.isFailure"
+  ></my-crawl-attempt-branching2
+  ><!-- <span class="text-postfix">{{ textPostfix }}</span> 
+  --><span class="text-postfix" *ngIf="fragmentsPostfix"
+    ><my-crawl-log-regioned-line-no-overlap [fragments]="fragmentsPostfix"></my-crawl-log-regioned-line-no-overlap
+  ></span
+></span>

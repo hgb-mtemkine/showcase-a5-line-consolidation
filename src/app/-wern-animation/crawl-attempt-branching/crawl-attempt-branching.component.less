@@ -1,0 +1,125 @@
+@import "~less/variables.less";
+
+@cellW: 15px;
+@cellH: 30px;
+
+:host {
+  .log-row {
+    display: block;
+    white-space: nowrap;
+    margin-top: -1px;
+  }
+  .cell {
+    display: inline-block;
+    height: @cellH;
+    line-height: @cellH;
+    vertical-align: bottom;
+
+    &.cell-postfix {
+      cursor: pointer;
+      height: calc(@cellH - 10px);
+      line-height: calc(@cellH - 10px);
+
+      &:hover {
+        background-color: #ffffaa;
+      }
+
+      .wchar {
+        color: #ccc;
+        border-color: #ccc;
+        border-left: none;
+        height: calc(@cellH - 10px);
+        line-height: calc(@cellH - 10px);
+        
+        .wchar-text {
+          .wchar-rule {
+            color: #caedff;
+          }
+        }
+      }
+    }
+  }
+  .wchar {
+    position: relative;
+    box-sizing: border-box;
+    text-align: center;
+    border: 1px solid black;
+    
+    &.wchar1 {
+      width: @cellW;
+    }
+    &.wchar-flexible {
+      padding: 0 6px;
+    }
+    &.wchar-prefix {
+      color: #f6f6f6;
+      border-color: #f6f6f6;
+      border-right: none;
+    }
+    &.wchar-main {
+      z-index: 1;
+      &:not(:first-child) {
+        border-left: none;
+      }
+
+      &.navigable {
+        cursor: pointer;
+        background-color: @wern-green-light;
+        &:hover {
+          background-color: yellow;
+        }
+      }
+    }
+
+    .wchar-text {
+      .wchar-rule {
+        padding: 0 2px;
+        color: #0099ff;
+      }
+    }
+    .wchar-superscript {
+      position: absolute;
+      display: block;
+      background: #91d9ff;
+      line-height: 10px;
+      font-size: 9px;
+      padding: 1px 2px;
+      top: 0;
+      left: 0;
+    }
+  }
+  // .failure .wchar-main:last-child {
+  //   color: @wern-red;
+  //   background-color: @wern-red-light;
+  //   text-decoration: line-through;
+  // }
+  .success-arrow {
+    cursor: pointer;
+    color: green;
+
+    i.fa {
+      line-height: @cellH;
+    }
+    
+    &:hover {
+      color: orange;
+    }
+  }
+  .success-note {
+    background-color: @wern-green;
+    color: white;
+    padding: 5px;
+    margin-left: 5px;
+  }
+
+  .branch-holder {
+    position: relative;
+    display: inline-block;
+    
+    .cell-postfix {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+}

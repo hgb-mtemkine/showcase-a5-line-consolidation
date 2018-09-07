@@ -1,0 +1,15 @@
+<span class="crossword"
+  ><span class="cells main-chars1" [ngClass]="{'success': isSuccess, 'fail': isFailure}"
+    ><span *ngFor="let ccc of mainChars1" class="wchar">{{ ccc }}</span
+  ></span
+  ><span class="branch-con"
+    ><span class="cells branch"
+      ><span class="ease-in" *ngIf="convergeIndex > 0 && (branchRem.length + mainChars2.length) > 0"></span
+      ><span *ngFor="let ccc of mainChars2" class="wchar">{{ ccc }}</span
+      ><span *ngFor="let tok of branchRem" class="wchar" [ngClass]="{'wchar-ruleref': tok.RuleName}">{{ tok.RuleName || tok.Text }}</span
+    ></span
+  ></span
+  ><span class="cells main-chars2" [ngClass]="{'force-lborder': convergeIndex == 0, 'success': isSuccess, 'fail': isFailure}"
+    ><span *ngFor="let ccc of mainChars2" class="wchar">{{ ccc }}</span
+  ></span
+></span>

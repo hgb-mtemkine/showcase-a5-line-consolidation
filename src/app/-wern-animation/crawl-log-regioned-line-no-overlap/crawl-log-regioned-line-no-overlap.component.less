@@ -1,0 +1,209 @@
+@import "~less/mixins-custom.less";
+
+:host {
+  .fragment-con {
+    position: relative;
+
+    .fragment-text {
+      white-space: pre-line;
+    } // (a69e7c4) MT - other color version with underline
+    .pass2 {
+      background-color: rgba(119, 221, 255, 0.740); //border-bottom: 2px solid #0053d6;
+      color: black;
+      padding: 0px 1px;
+      margin: 0 -1px;
+    }
+    .pass3 {
+      // background-color: #3fcd1f; // green
+      // background-color: #51da51; // green (lighter)
+      background-color: #fb8fff; // purple
+      color: black;
+      padding: 4px 5px 3px; //margin: 0 2px;
+      .pass2-inner {
+        //background-color: #15bbe0;
+        border: 1px solid #60ffce; //border-bottom: 2px solid #0053d6;
+        padding: 0px 3px;
+        margin: 0;
+      }
+    } // --- hoverclickable (see default-styles.css) custom colors and overrides ---
+    .mixin-hoverclickable(1em);
+    .hoverclickable {
+      .show-on-hover {
+        display: block;
+        font-family: Arial, Helvetica, sans-serif;
+        letter-spacing: 0;
+        z-index: 0;
+        &.hover-tiny-oneline {
+          background-color: #fdc172;
+          color: black;
+        }
+        &.hover-cli-result {
+          border: 1px solid green;
+        }
+      }
+      &:hover {
+        &.pass3 {
+          background-color: #FFCC00;
+          color: black; // .pass2-inner {
+          //   background-color:#169216;
+          //   color: white;
+          //   &:hover {
+          //     background-color:yellow;
+          //     color: black;
+          //   }
+          // }
+        }
+        &.pass2-inner:hover {
+          background-color: yellow;
+          color: black;
+        }
+      }
+    }
+
+    .hover-result-container {
+      border: 1px solid green;
+
+    }
+    my-noun-visualizer {
+      display: block;
+      width: fit-content;
+      white-space: normal;
+      letter-spacing: 0;
+    }
+    
+    @lastFrameAnimationDuration: 5s;
+
+    &.animate-fade-out {
+      animation: animation_fadeOut @lastFrameAnimationDuration forwards;
+      -webkit-animation: animation_fadeOut @lastFrameAnimationDuration forwards;
+    }
+    &.animate-fade-out-later .pass3 {
+      animation: animation_fadeOutLater @lastFrameAnimationDuration forwards;
+      -webkit-animation: animation_fadeOutLater @lastFrameAnimationDuration forwards;
+    }
+    .animate-show-halfway-br {
+      display: inline-block;
+      animation: animation_halfway_width100 @lastFrameAnimationDuration forwards;
+      -webkit-animation: animation_halfway_width100 @lastFrameAnimationDuration forwards;
+    }
+
+    .cli-results {
+      position: absolute;
+      left: 0;
+      top: 1.5em;
+      letter-spacing: 0;
+      width: 100%;
+      background-color: #ccffd8;
+
+      .cli-result {
+        display: block;
+      }
+      animation: animation_cli_results @lastFrameAnimationDuration forwards;
+      -webkit-animation: animation_cli_results @lastFrameAnimationDuration forwards;
+    }
+    
+    @-webkit-keyframes animation_fadeOut {
+      0% {
+        opacity: 1;
+        font-size: inherit;
+        letter-spacing: inherit;
+        visibility: visible;
+      }
+      40% {
+        opacity: 1;
+        font-size: inherit;
+        letter-spacing: inherit;
+        visibility: visible;
+      }
+      60% {
+        opacity: 0;
+        font-size: inherit;
+        letter-spacing: inherit;
+        visibility: visible;
+      }
+      80% {
+        opacity: 0;
+        font-size: 0;
+        letter-spacing: 0;
+        visibility: hidden;
+      }
+      100% {
+        font-size: 0;
+        letter-spacing: 0;
+        visibility: hidden;
+      }
+    }
+
+    @keyframes animation_fadeOut {
+      0% {
+        opacity: 1;
+        font-size: inherit;
+        letter-spacing: inherit;
+        visibility: visible;
+      }
+      40% {
+        opacity: 1;
+        font-size: inherit;
+        letter-spacing: inherit;
+        visibility: visible;
+      }
+      60% {
+        opacity: 0;
+        font-size: inherit;
+        letter-spacing: inherit;
+        visibility: visible;
+      }
+      80% {
+        opacity: 0;
+        font-size: 0;
+        letter-spacing: 0;
+        visibility: hidden;
+      }
+      100% {
+        opacity: 0;
+        font-size: 0;
+        letter-spacing: 0;
+        visibility: hidden;
+      }
+    }
+
+    @-webkit-keyframes animation_fadeOutLater {
+      0% { opacity: 1; }
+      92% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+    @keyframes animation_fadeOutLater {
+      0% { opacity: 1; }
+      92% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    @-webkit-keyframes animation_halfway_width100 {
+      0% {width: 0%; visibility: hidden;}
+      60% {width: 0%; visibility: hidden; margin-bottom: 0px;}
+      75% {width: 100%; visibility: visible; margin-bottom: 50px;}
+      90% {width: 100%; visibility: visible; margin-bottom: 50px;}
+      100% {width: 100%; visibility: visible; margin-bottom: 0;}
+    }
+    @keyframes animation_halfway_width100 {
+      0% {width: 0%; visibility: hidden;}
+      60% {width: 0%; visibility: hidden; margin-bottom: 0px;}
+      75% {width: 100%; visibility: visible; margin-bottom: 50px;}
+      90% {width: 100%; visibility: visible; margin-bottom: 50px;}
+      100% {width: 100%; visibility: visible; margin-bottom: 0;}
+    }
+
+    @-webkit-keyframes animation_cli_results {
+      0% {visibility: hidden;.transform(scale(0.01));}
+      65% {visibility: hidden;.transform(scale(0.01));}
+      85% {visibility: visible;.transform(scale(1)); background-color: #ccffd8;}
+      100% {visibility: visible;.transform(scale(1)); background-color: #fff;}
+    }
+    @keyframes animation_cli_results {
+      0% {visibility: hidden;.transform(scale(0.01));}
+      65% {visibility: hidden;.transform(scale(0.01));}
+      85% {visibility: visible;.transform(scale(1)); background-color: #ccffd8;}
+      100% {visibility: visible;.transform(scale(1)); background-color: #fff;}
+    }
+  }
+}

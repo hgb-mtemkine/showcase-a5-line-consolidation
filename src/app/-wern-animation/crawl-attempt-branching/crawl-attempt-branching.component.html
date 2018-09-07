@@ -1,0 +1,35 @@
+<div class="log-row">
+  <!-- <div class="cell cell1 cell-faint">{{ vm.Offset }}</div> -->
+  <div *ngFor="let x of vm.Offset | iterable" class="cell wchar wchar1 wchar-prefix"></div
+  ><div class="cell"
+    ><div
+      *ngFor="let wct of vm.ChainMain"
+      class="cell wchar wchar-main"
+      [ngClass]="{ 'navigable': wct.SourcePosition }"
+      [style.width]="15 * wct.Text.length + 'px'"
+      (click)="wct.SourcePosition && goToSourcePosition(wct.SourcePosition)"
+      ><span *ngIf="!wct.RuleName" class="wchar-text">{{ wct.Text }}</span
+      ><span *ngIf="wct.RuleName" class="wchar-text">[<span class="wchar-rule">{{ wct.RuleName }}</span>]</span
+      ><span *ngIf="wct.RuleName" class="wchar-superscript">{{ wct.Text }}</span
+    ></div
+  ></div
+  ><div class="branch-holder" 
+    ><div class="cell cell-postfix" 
+      ><div
+        *ngFor="let wct of vm.ChainRemainder"
+        class="cell wchar"
+        [ngClass]="{ 'wchar1': !wct.RuleName, 'wchar-flexible': wct.RuleName }"
+        (click)="vm.SourcePosition && goToSourcePosition(vm.SourcePosition)"
+        ><span *ngIf="!wct.RuleName" class="wchar-text">{{ wct.Text }}</span
+        ><span *ngIf="wct.RuleName" class="wchar-text">[<span class="wchar-rule">{{ wct.RuleName }}</span>]</span
+      ></div
+    ></div
+  ></div>
+  <!-- <div class="cell" *ngIf="vm.SourcePosition && vm.Success">
+    <span class="success-arrow" (click)="goToSourcePosition(vm.SourcePosition)">
+      <i class="fa fa-arrow-circle-right wern-icon"></i>
+    </span>
+    <span *ngFor="let success of vm.SuccessNotes" class="success-note">{{ success }}</span>
+  </div> -->
+</div>
+<!-- <pre>{{ vm | json }}</pre> -->
