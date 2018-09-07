@@ -54,16 +54,16 @@ body {
     padding: 2%;
 }
 
-@-webkit-keyframes fadeIn {
+@-webkit-keyframes fadeInOffset {
     0% {font-size: 0px; opacity: 0;}
-    15% {font-size: 0px; opacity: 0;}
+    65% {font-size: 0px; opacity: 0;}
     100% {font-size: 100%; opacity: 1;}
 }
 
 /* Standard syntax */
-@keyframes fadeIn {
+@keyframes fadeInOffset {
     0% {font-size: 0px; opacity: 0;}
-    15% {font-size: 0px; opacity: 0;}
+    65% {font-size: 0px; opacity: 0;}
     100% {font-size: 100%; opacity: 1;}
 }
 
@@ -76,9 +76,9 @@ body {
     font-size: 0px;
     position :relative;
     transform-origin: left;
-    -webkit-animation: fadeIn 5s forwards; /* Safari 4.0 - 8.0 */
-    animation: fadeIn 5s forwards;
-    animation-delay: 1s; /* Safari 4.0 - 8.0 */
+    -webkit-animation: fadeInOffset 3.5s forwards; /* Safari 4.0 - 8.0 */
+    animation: fadeInOffset 3.5s forwards;
+    animation-delay: 1.5s; /* Safari 4.0 - 8.0 */
 }
 
 #left, #right :active {
