@@ -32,32 +32,22 @@ export class AnimateLineSingleframeComponent implements OnChanges {
       text: x
     });
     
-    this.myLines.forEach((x1, index) => this.vm.alterations.forEach((x2) =>  { 
-      console.log("x1: " + index + " text: " + x1.text)
-      console.log("x2: " + x2.index)
-      if (index == x2.index) {
-        x1.action = x2.action
-        if (x2.action === LineConsolidationAction.Modify) {
-
-          console.log("x1aaa: " + index)
-          console.log("x2aaa: " + x2.index)
-          let jdiff = JsDiff.diffWordsWithSpace(x1.text, x2.text);
-          let regions = this.getDiff(jdiff);
-          console.log("new: " + x2.text);
-          console.log("old: " + x1.text);
-          console.log(regions);
-          x1.textMod1 = regions[0];
-          x1.textMod2 = regions[1];
-          x1.textMod3 = regions[2];        
-
-        }
-        else if (x2.action == LineConsolidationAction.Remove){
-          console.log("x1rrr: " + index)
-          console.log("x2rrr: " + x2.index)
-        }
+    // NOTE: null check
+    this.vm.alterations && this.vm.alterations.forEach(alteration => {
+      let target = this.myLines[alteration.index];
+      target.action = alteration.action;
+      if (alteration.action === LineConsolidationAction.Modify) {
+        // .... use JsDiff to compute diff regions
+        let jdiff = JsDiff.diffWordsWithSpace(target.text, alteration.text);
+        let regions = this.getDiff(jdiff);
+        target.textMod1 = regions[0];
+        target.textMod2 = regions[1];
+        target.textMod3 = regions[2];
       }
-      
-    }));
+      else if (alteration.action == LineConsolidationAction.Remove) {
+        // .... nothing to do...
+      }
+    });
   }
 
   public getDiff(obj: any): Array<string> {
@@ -68,12 +58,6 @@ export class AnimateLineSingleframeComponent implements OnChanges {
       }
     }
     return diffStr;
-  }
-
-  mapfn(x) {
-    return <LineConsolidationSingleLineVM> {
-      
-    }
   }
 
 }
