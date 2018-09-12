@@ -1,4 +1,5 @@
 export enum LineConsolidationAction {
+  None,
   Add,
   Remove,
   Modify

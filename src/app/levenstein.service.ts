@@ -62,28 +62,28 @@ export class LevensteinService {
           d[iii][jjj - 1], //insertion
           d[iii - 1][jjj - 1] //substitution
         );
-        console.log(minBacktrack);
+        //console.log(minBacktrack);
         if (minBacktrack == d[iii][jjj]) {
           iii--;
           jjj--;
-          console.log("noop");
+          //console.log("noop");
           continue;
         }
         if (minBacktrack == d[iii][jjj - 1] && minBacktrack == d[iii][jjj]) {
-          console.log("minBacktrack: " + minBacktrack + " d[iii][jjj-1] && d[iii][jjj]: " + [iii,jjj]);
+          //console.log("minBacktrack: " + minBacktrack + " d[iii][jjj-1] && d[iii][jjj]: " + [iii,jjj]);
           //rogueIndicesB.push(jjj);
           iii--;
           jjj--;
           continue;
         }
         if (minBacktrack == d[iii][jjj - 1]) {
-          console.log("minBacktrack: " + minBacktrack + " d[iii][jjj-1]: " + [iii,jjj]);
+          //console.log("minBacktrack: " + minBacktrack + " d[iii][jjj-1]: " + [iii,jjj]);
           rogueIndicesB.push(jjj);
           jjj--;
           continue;
         }
         if (minBacktrack == d[iii - 1][jjj]) {
-          console.log("minBacktrack: " + minBacktrack + " d[iii-1][jjj]: " + [iii,jjj]);
+          //console.log("minBacktrack: " + minBacktrack + " d[iii-1][jjj]: " + [iii,jjj]);
           rogueIndicesA.push(iii);
           iii--;
           continue;
@@ -104,7 +104,7 @@ export class LevensteinService {
       }
     }
     //console.log(rogueIndicesB);
-    console.log(d);
+    //console.log(d);
 
     //  Step 8
     return <LevensteinResult> {
