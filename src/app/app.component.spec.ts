@@ -1,6 +1,6 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { LevensteinService } from 'app/levenstein.service';
+import { LevensteinService } from './services/levenstein.service';
 
 var sssA = "I like to eat";
 var sssB = "I like to eat crayons";

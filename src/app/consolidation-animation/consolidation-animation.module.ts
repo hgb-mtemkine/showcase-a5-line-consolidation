@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'angular2-carousel';
 import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 
-import { LevensteinService } from 'app/levenstein.service';
+import { LevensteinService } from 'app/services/levenstein.service';
 
 import { AnimateLineSingleframeComponent } from './animate-line-singleframe/animate-line-singleframe.component';
 import { AnimateLineComponent } from './animate-line/animate-line.component';

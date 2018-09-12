@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges } from '@angular/core';
-import { LevensteinService } from 'app/levenstein.service';
+import { LevensteinService } from 'app/services/levenstein.service';
 import { LineConsolidationAction, LineConsolidationSnapshot } from 'app/models/log-vm';
 import * as JsDiff from 'diff';
 
@@ -16,7 +16,6 @@ export class AnimateLineSingleframeComponent implements OnChanges {
 
   @Input()
   vm: LineConsolidationSnapshot;
-  
 
   public myLines: LineConsolidationSingleLineVM[];
 
@@ -26,7 +25,7 @@ export class AnimateLineSingleframeComponent implements OnChanges {
 
   ngOnInit() {}
   ngOnChanges() {
-    //debugger;
+    // debugger;
     this.myLines = this.vm.lines.map(x => <LineConsolidationSingleLineVM> {
       action: LineConsolidationAction.None,
       text: x

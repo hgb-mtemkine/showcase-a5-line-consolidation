@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { LevensteinService } from 'app/levenstein.service';
 import { LineConsolidationLog } from 'app/models/log-vm';
 
 @Component({

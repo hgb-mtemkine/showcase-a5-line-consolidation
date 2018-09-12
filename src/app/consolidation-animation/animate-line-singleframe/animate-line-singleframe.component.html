@@ -1,23 +1,21 @@
 
-<div class="items row">
-  <div class="column"> 
-    <div  class="line" *ngFor="let line of myLines" > 
-      <div *ngIf="line.action == LineConsolidationAction.None">{{ line.text }}</div>
-      <div *ngIf="line.action == LineConsolidationAction.Remove" class="disappear-active">{{ line.text }}</div>
-      <!-- <div *ngIf="line.action == LineConsolidationAction.Add" class="disappear-active">{{ line.text }}</div> -->
-      <div *ngIf="line.action == LineConsolidationAction.Modify">
-        <span>{{ line.textMod1 }}</span>
-        <span class="fadeIn">{{ line.textMod2 }}</span>
-        <span>{{ line.textMod3 }}</span>
-      </div>
-      
-      <!-- <div *ngIf="((remArr[i] == l) && (i === this.selectedIndex)); then highlightactive else modified "></div>
-      <ng-template #modified>
-        <div *ngIf="((subNew[i].index == l)  && (i === this.selectedIndex)); then modifiedYa else plain "></div>
-      </ng-template>
-      <ng-template #highlightactive><div class="disappear-active">{{line}}</div></ng-template>
-      <ng-template #modifiedYa>{{subNew[i].text[0]}} <span class="fadeIn">{{subNew[i].text[1]}}</span> {{subNew[i].text[2]}}</ng-template>
-      <ng-template #plain>{{line}}</ng-template>  -->
-    </div> 
-  </div>
+<div class="frame-container"> 
+  <div  class="line" *ngFor="let line of myLines" > 
+    <div *ngIf="line.action == LineConsolidationAction.None">{{ line.text }}</div>
+    <div *ngIf="line.action == LineConsolidationAction.Remove" class="disappear-active">{{ line.text }}</div>
+    <!-- <div *ngIf="line.action == LineConsolidationAction.Add" class="disappear-active">{{ line.text }}</div> -->
+    <div *ngIf="line.action == LineConsolidationAction.Modify">
+      <span>{{ line.textMod1 }}</span>
+      <span class="fadeIn">{{ line.textMod2 }}</span>
+      <span>{{ line.textMod3 }}</span>
+    </div>
+    
+    <!-- <div *ngIf="((remArr[i] == l) && (i === this.selectedIndex)); then highlightactive else modified "></div>
+    <ng-template #modified>
+      <div *ngIf="((subNew[i].index == l)  && (i === this.selectedIndex)); then modifiedYa else plain "></div>
+    </ng-template>
+    <ng-template #highlightactive><div class="disappear-active">{{line}}</div></ng-template>
+    <ng-template #modifiedYa>{{subNew[i].text[0]}} <span class="fadeIn">{{subNew[i].text[1]}}</span> {{subNew[i].text[2]}}</ng-template>
+    <ng-template #plain>{{line}}</ng-template>  -->
+  </div> 
 </div>

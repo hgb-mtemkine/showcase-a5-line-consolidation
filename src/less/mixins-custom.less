@@ -1,0 +1,75 @@
+//------------ hoverclickable ---------------
+.mixin-hoverclickable(@parentLineHeight) {
+  .hoverclickable {
+    cursor: pointer;
+    position: relative;
+    .show-on-hover {
+      position: absolute;
+      display: none;
+      z-index: 10;
+  
+      // .... hover positions
+      &.hover-above {
+        top: -1.2em;
+        left: 0px;
+      }
+      &.hover-below {
+        top: @parentLineHeight;
+        left: 0px;
+      }
+      &.hover-below-lower {
+        top: @parentLineHeight + 0.5em;
+        left: 0px;
+      }
+      &.hover-tiny-oneline {
+        line-height: 1em;
+        background-color: black;
+        color: white;
+        font-size: 10px;
+        padding: 2px 5px;
+        white-space: nowrap;
+      }
+    }
+  
+    &:hover {
+      background-color:yellow;
+      color: black;
+  
+      > .show-on-hover {
+        display: block;
+      }
+    }
+  }
+}
+
+.blur(@px) {
+	-webkit-filter: blur(@px);
+  -moz-filter: blur(@px);
+  -o-filter: blur(@px);
+  -ms-filter: blur(@px);
+  filter: blur(@px);
+}
+
+.transition(@transition) {
+	-webkit-transition: @transition;
+	-moz-transition: @transition;
+	-o-transition: @transition;
+	-ms-transition: @transition;
+  transition: @transition;
+}
+
+.transform(@transform) {
+  -webkit-transform: @transform;
+  -moz-transform: @transform;
+  -o-transform: @transform;
+  -ms-transform: @transform;
+  transform: @transform;
+}
+
+.transform-transition(@param) {
+  -webkit-transform: -webkit-transition @param;
+  -moz-transform: -moz-transition @param;
+  -o-transform: -o-transition @param;
+  -ms-transform: -ms-transition @param;
+  transform: transition @param;
+}

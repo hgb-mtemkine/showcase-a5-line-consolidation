@@ -1,17 +1,19 @@
-<div class="flex-group" [hidden]="hideControls">
-  <div class="lhs-addon">
-    <div class="flex-content-vcenter frame-controls">
-      <button (click)="startPlayback()"><i class="fa" [ngClass]="{'fa-stop': this.playerThread, 'fa-play': !this.playerThread}"></i></button>
+<div [hidden]="hideControls">
+  <div class="flex-group">
+    <div class="lhs-addon">
+      <div class="flex-content-vcenter frame-controls">
+        <button (click)="startPlayback()"><i class="fa" [ngClass]="{'fa-stop': this.playerThread, 'fa-play': !this.playerThread}"></i></button>
+      </div>
     </div>
-  </div>
-  <div class="main-content" >
-    <ngx-slider [min]="0" [max]="frames.length-1" step="1" [(ngModel)]="frameIndex"></ngx-slider>
-  </div>
-  <div class="rhs-addon">
-    <div class="flex-content-vcenter frame-controls">
-      <button (click)="incFrame(-1)" [disabled]="frameIndex <= 0">-</button>
-      <span class="frame-index">{{frameIndex}}</span>
-      <button (click)="incFrame(1)" [disabled]="frameIndex >= frames.length-1">+</button>
+    <div class="main-content" >
+      <ngx-slider [min]="0" [max]="frames.length-1" step="1" [(ngModel)]="frameIndex"></ngx-slider>
+    </div>
+    <div class="rhs-addon">
+      <div class="flex-content-vcenter frame-controls">
+        <button (click)="incFrame(-1)" [disabled]="frameIndex <= 0">-</button>
+        <span class="frame-index">{{frameIndex}}</span>
+        <button (click)="incFrame(1)" [disabled]="frameIndex >= frames.length-1">+</button>
+      </div>
     </div>
   </div>
 </div>
