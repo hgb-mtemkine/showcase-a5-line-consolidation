@@ -1,7 +1,8 @@
 import { Component, Input, OnChanges } from '@angular/core';
-import { LevensteinService } from 'app/services/levenstein.service';
-import { LineConsolidationAction, LineConsolidationSnapshot } from 'app/models/log-vm';
 import * as JsDiff from 'diff';
+
+import { LineConsolidationAction, LineConsolidationSnapshot } from 'app/models/log-vm';
+import { LevensteinService } from 'app/services/levenstein.service';
 
 import { LineConsolidationSingleLineVM } from './my-models';
 

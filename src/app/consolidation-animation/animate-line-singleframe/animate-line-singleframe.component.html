@@ -3,7 +3,7 @@
   <div  class="line" *ngFor="let line of myLines" > 
     <div *ngIf="line.action == LineConsolidationAction.None">{{ line.text }}</div>
     <div *ngIf="line.action == LineConsolidationAction.Remove" class="disappear-active">{{ line.text }}</div>
-    <!-- <div *ngIf="line.action == LineConsolidationAction.Add" class="disappear-active">{{ line.text }}</div> -->
+    <div *ngIf="line.action == LineConsolidationAction.Add" class="appear-active">{{ line.text }}</div>
     <div *ngIf="line.action == LineConsolidationAction.Modify">
       <span>{{ line.textMod1 }}</span>
       <span class="fadeIn">{{ line.textMod2 }}</span>
