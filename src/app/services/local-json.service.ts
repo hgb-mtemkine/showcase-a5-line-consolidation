@@ -8,7 +8,7 @@ import { WernickeMovieVM } from 'app/models/movie-vm';
 @Injectable()
 export class LocalJsonDataService {
 
-  readonly SampleDebugVm = '/assets/debug-vm.json'; // NOTE: use this if you want to test mock json locally
+  readonly SampleDebugVm = './assets/debug-vm.json'; // NOTE: use this if you want to test mock json locally
 
   constructor(
     private http: HttpClient,

@@ -1,11 +1,12 @@
 <!-- <pre>{{ vm | json }} </pre> -->
 
-<blah-animate-line-singleframe [vm]="vm.snapshots[curIndex]"></blah-animate-line-singleframe>
-
 <div class="control-panel">
   <button (click)="curIndex = curIndex - 1">-</button>
   <button (click)="curIndex = curIndex + 1">+</button>
+  <span>{{ curIndex }}</span>
 </div>
+<blah-animate-line-singleframe [vm]="vm.snapshots[curIndex]"></blah-animate-line-singleframe>
+
 
 <!-- <div id="container">
   <div 

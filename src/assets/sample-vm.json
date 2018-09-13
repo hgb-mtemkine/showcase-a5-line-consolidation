@@ -1,0 +1,272 @@
+{
+  "Act2": {
+    "snapshots": [{
+      "lines": [
+        "datetime --date Feb 13th",
+        "flight --flight-number AA#947",
+        "datetime --time1 3:35 pm --time2 7:53pm",
+        "flight --from Miami --to Quito (Ecuador)",
+        "datetime --date Feb 17th",
+        "flight --flight-number AA# 946",
+        "datetime --time1 12:30 am --time2 4:41 am",
+        "flight --from Quito --to Miami",
+        "datetime --date Feb 18th",
+        "flight --flight-number AA#257",
+        "datetime --time1 6:40 pm --time2 9:30 pm",
+        "flight --from Miami --to Mexico City",
+        "datetime --date Feb 24th",
+        "flight --flight-number AA#1498",
+        "datetime --time1 7:10 am --time2 11:35 am",
+        "flight --from Mexico City --to Miami"
+      ],
+      "alterations": [{
+        "index": 0,
+        "action": "Remove"
+      }, {
+        "index": 1,
+        "action": "Modify",
+        "text": "flight --flight-number AA#947 --date Feb 13th"
+      }]
+    }, {
+      "lines": [
+        "flight --flight-number AA#947 --date Feb 13th",
+        "datetime --time1 3:35 pm --time2 7:53pm",
+        "flight --from Miami --to Quito (Ecuador)",
+        "datetime --date Feb 17th",
+        "flight --flight-number AA# 946",
+        "datetime --time1 12:30 am --time2 4:41 am",
+        "flight --from Quito --to Miami",
+        "datetime --date Feb 18th",
+        "flight --flight-number AA#257",
+        "datetime --time1 6:40 pm --time2 9:30 pm",
+        "flight --from Miami --to Mexico City",
+        "datetime --date Feb 24th",
+        "flight --flight-number AA#1498",
+        "datetime --time1 7:10 am --time2 11:35 am",
+        "flight --from Mexico City --to Miami"
+      ],
+      "alterations": [{
+        "index": 1,
+        "action": "Remove"
+      }, {
+        "index": 2,
+        "action": "Modify",
+        "text": "flight --from Miami --to Quito (Ecuador) --time1 3:35 pm --time2 7:53pm"
+      }]
+    }, {
+      "lines": [
+        "flight --flight-number AA#947 --date Feb 13th",
+        "flight --from Miami --to Quito (Ecuador) --time1 3:35 pm --time2 7:53pm",
+        "datetime --date Feb 17th",
+        "flight --flight-number AA# 946",
+        "datetime --time1 12:30 am --time2 4:41 am",
+        "flight --from Quito --to Miami",
+        "datetime --date Feb 18th",
+        "flight --flight-number AA#257",
+        "datetime --time1 6:40 pm --time2 9:30 pm",
+        "flight --from Miami --to Mexico City",
+        "datetime --date Feb 24th",
+        "flight --flight-number AA#1498",
+        "datetime --time1 7:10 am --time2 11:35 am",
+        "flight --from Mexico City --to Miami"
+      ],
+      "alterations": [{
+        "index": 2,
+        "action": "Remove"
+      }, {
+        "index": 3,
+        "action": "Modify",
+        "text": "flight --flight-number AA# 946 --date Feb 17th"
+      }]
+    }, {
+      "lines": [
+        "flight --flight-number AA#947 --date Feb 13th",
+        "flight --from Miami --to Quito (Ecuador) --time1 3:35 pm --time2 7:53pm",
+        "flight --flight-number AA# 946 --date Feb 17th",
+        "datetime --time1 12:30 am --time2 4:41 am",
+        "flight --from Quito --to Miami",
+        "datetime --date Feb 18th",
+        "flight --flight-number AA#257",
+        "datetime --time1 6:40 pm --time2 9:30 pm",
+        "flight --from Miami --to Mexico City",
+        "datetime --date Feb 24th",
+        "flight --flight-number AA#1498",
+        "datetime --time1 7:10 am --time2 11:35 am",
+        "flight --from Mexico City --to Miami"
+      ],
+      "alterations": [{
+        "index": 3,
+        "action": "Remove"
+      }, {
+        "index": 4,
+        "action": "Modify",
+        "text": "flight --from Quito --to Miami --time1 12:30 am --time2 4:41 am"
+      }]
+    }, {
+      "lines": [
+        "flight --flight-number AA#947 --date Feb 13th",
+        "flight --from Miami --to Quito (Ecuador) --time1 3:35 pm --time2 7:53pm",
+        "flight --flight-number AA# 946 --date Feb 17th",
+        "flight --from Quito --to Miami --time1 12:30 am --time2 4:41 am",
+        "datetime --date Feb 18th",
+        "flight --flight-number AA#257",
+        "datetime --time1 6:40 pm --time2 9:30 pm",
+        "flight --from Miami --to Mexico City",
+        "datetime --date Feb 24th",
+        "flight --flight-number AA#1498",
+        "datetime --time1 7:10 am --time2 11:35 am",
+        "flight --from Mexico City --to Miami"
+      ],
+      "alterations": [{
+        "index": 4,
+        "action": "Remove"
+      }, {
+        "index": 5,
+        "action": "Modify",
+        "text": "flight --flight-number AA#257 --date Feb 18th"
+      }]
+    }, {
+      "lines": [
+        "flight --flight-number AA#947 --date Feb 13th",
+        "flight --from Miami --to Quito (Ecuador) --time1 3:35 pm --time2 7:53pm",
+        "flight --flight-number AA# 946 --date Feb 17th",
+        "flight --from Quito --to Miami --time1 12:30 am --time2 4:41 am",
+        "flight --flight-number AA#257 --date Feb 18th",
+        "datetime --time1 6:40 pm --time2 9:30 pm",
+        "flight --from Miami --to Mexico City",
+        "datetime --date Feb 24th",
+        "flight --flight-number AA#1498",
+        "datetime --time1 7:10 am --time2 11:35 am",
+        "flight --from Mexico City --to Miami"
+      ],
+      "alterations": [{
+        "index": 5,
+        "action": "Remove"
+      }, {
+        "index": 6,
+        "action": "Modify",
+        "text": "flight --from Miami --to Mexico City --time1 6:40 pm --time2 9:30 pm"
+      }]
+    }, {
+      "lines": [
+        "flight --flight-number AA#947 --date Feb 13th",
+        "flight --from Miami --to Quito (Ecuador) --time1 3:35 pm --time2 7:53pm",
+        "flight --flight-number AA# 946 --date Feb 17th",
+        "flight --from Quito --to Miami --time1 12:30 am --time2 4:41 am",
+        "flight --flight-number AA#257 --date Feb 18th",
+        "flight --from Miami --to Mexico City --time1 6:40 pm --time2 9:30 pm",
+        "datetime --date Feb 24th",
+        "flight --flight-number AA#1498",
+        "datetime --time1 7:10 am --time2 11:35 am",
+        "flight --from Mexico City --to Miami"
+      ],
+      "alterations": [{
+        "index": 6,
+        "action": "Remove"
+      }, {
+        "index": 7,
+        "action": "Modify",
+        "text": "flight --flight-number AA#1498 --date Feb 24th"
+      }]
+    }, {
+      "lines": [
+        "flight --flight-number AA#947 --date Feb 13th",
+        "flight --from Miami --to Quito (Ecuador) --time1 3:35 pm --time2 7:53pm",
+        "flight --flight-number AA# 946 --date Feb 17th",
+        "flight --from Quito --to Miami --time1 12:30 am --time2 4:41 am",
+        "flight --flight-number AA#257 --date Feb 18th",
+        "flight --from Miami --to Mexico City --time1 6:40 pm --time2 9:30 pm",
+        "flight --flight-number AA#1498 --date Feb 24th",
+        "datetime --time1 7:10 am --time2 11:35 am",
+        "flight --from Mexico City --to Miami"
+      ],
+      "alterations": [{
+        "index": 7,
+        "action": "Remove"
+      }, {
+        "index": 8,
+        "action": "Modify",
+        "text": "flight --from Mexico City --to Miami --time1 7:10 am --time2 11:35 am"
+      }]
+    }, {
+      "lines": [
+        "flight --flight-number AA#947 --date Feb 13th",
+        "flight --from Miami --to Quito (Ecuador) --time1 3:35 pm --time2 7:53pm",
+        "flight --flight-number AA# 946 --date Feb 17th",
+        "flight --from Quito --to Miami --time1 12:30 am --time2 4:41 am",
+        "flight --flight-number AA#257 --date Feb 18th",
+        "flight --from Miami --to Mexico City --time1 6:40 pm --time2 9:30 pm",
+        "flight --flight-number AA#1498 --date Feb 24th",
+        "flight --from Mexico City --to Miami --time1 7:10 am --time2 11:35 am"
+      ],
+      "alterations": [{
+        "index": 0,
+        "action": "Remove"
+      }, {
+        "index": 1,
+        "action": "Modify",
+        "text": "flight --from Miami --to Quito (Ecuador) --time1 3:35 pm --time2 7:53pm --flight-number AA#947 --date Feb 13th"
+      }]
+    }, {
+      "lines": [
+        "flight --from Miami --to Quito (Ecuador) --time1 3:35 pm --time2 7:53pm --flight-number AA#947 --date Feb 13th",
+        "flight --flight-number AA# 946 --date Feb 17th",
+        "flight --from Quito --to Miami --time1 12:30 am --time2 4:41 am",
+        "flight --flight-number AA#257 --date Feb 18th",
+        "flight --from Miami --to Mexico City --time1 6:40 pm --time2 9:30 pm",
+        "flight --flight-number AA#1498 --date Feb 24th",
+        "flight --from Mexico City --to Miami --time1 7:10 am --time2 11:35 am"
+      ],
+      "alterations": [{
+        "index": 1,
+        "action": "Remove"
+      }, {
+        "index": 2,
+        "action": "Modify",
+        "text": "flight --from Quito --to Miami --time1 12:30 am --time2 4:41 am --flight-number AA# 946 --date Feb 17th"
+      }]
+    }, {
+      "lines": [
+        "flight --from Miami --to Quito (Ecuador) --time1 3:35 pm --time2 7:53pm --flight-number AA#947 --date Feb 13th",
+        "flight --from Quito --to Miami --time1 12:30 am --time2 4:41 am --flight-number AA# 946 --date Feb 17th",
+        "flight --flight-number AA#257 --date Feb 18th",
+        "flight --from Miami --to Mexico City --time1 6:40 pm --time2 9:30 pm",
+        "flight --flight-number AA#1498 --date Feb 24th",
+        "flight --from Mexico City --to Miami --time1 7:10 am --time2 11:35 am"
+      ],
+      "alterations": [{
+        "index": 2,
+        "action": "Remove"
+      }, {
+        "index": 3,
+        "action": "Modify",
+        "text": "flight --from Miami --to Mexico City --time1 6:40 pm --time2 9:30 pm --flight-number AA#257 --date Feb 18th"
+      }]
+    }, {
+      "lines": [
+        "flight --from Miami --to Quito (Ecuador) --time1 3:35 pm --time2 7:53pm --flight-number AA#947 --date Feb 13th",
+        "flight --from Quito --to Miami --time1 12:30 am --time2 4:41 am --flight-number AA# 946 --date Feb 17th",
+        "flight --from Miami --to Mexico City --time1 6:40 pm --time2 9:30 pm --flight-number AA#257 --date Feb 18th",
+        "flight --flight-number AA#1498 --date Feb 24th",
+        "flight --from Mexico City --to Miami --time1 7:10 am --time2 11:35 am"
+      ],
+      "alterations": [{
+        "index": 3,
+        "action": "Remove"
+      }, {
+        "index": 4,
+        "action": "Modify",
+        "text": "flight --from Mexico City --to Miami --time1 7:10 am --time2 11:35 am --flight-number AA#1498 --date Feb 24th"
+      }]
+    }
+    , {
+      "lines": [
+        "flight --from Miami --to Quito (Ecuador) --time1 3:35 pm --time2 7:53pm --flight-number AA#947 --date Feb 13th",
+        "flight --from Quito --to Miami --time1 12:30 am --time2 4:41 am --flight-number AA# 946 --date Feb 17th",
+        "flight --from Miami --to Mexico City --time1 6:40 pm --time2 9:30 pm --flight-number AA#257 --date Feb 18th",
+        "flight --from Mexico City --to Miami --time1 7:10 am --time2 11:35 am --flight-number AA#1498 --date Feb 24th"
+      ],
+      "alterations": []
+    }]
+  }
+}
