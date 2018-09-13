@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, Input, OnChanges, Output, EventEmitter } from '@angular/core';
 import * as JsDiff from 'diff';
 
 import { LineConsolidationAction, LineConsolidationSnapshot } from 'app/models/log-vm';
@@ -17,6 +17,10 @@ export class AnimateLineSingleframeComponent implements OnChanges {
 
   @Input()
   vm: LineConsolidationSnapshot;
+  @Input()
+  autoPlay: boolean = false;
+  @Output()
+  onSceneCompleted = new EventEmitter<void>();
 
   public myLines: LineConsolidationSingleLineVM[];
 
@@ -48,6 +52,14 @@ export class AnimateLineSingleframeComponent implements OnChanges {
         // .... nothing to do...
       }
     });
+
+    if (this.autoPlay) {
+      setTimeout(() => {
+        this.onSceneCompleted.emit();
+      }, 2000)
+    }
+
+
   }
 
   public getDiff(obj: any): Array<string> {

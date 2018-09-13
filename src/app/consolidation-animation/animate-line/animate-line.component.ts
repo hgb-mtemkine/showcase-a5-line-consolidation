@@ -15,8 +15,7 @@ export class AnimateLineComponent {
   autoPlay: boolean = false;
   @Input()
   autoStartDelay: number = 0;
-  @Output()
-  onSceneCompleted = new EventEmitter<void>();
+
 
   public curIndex: number;
 
@@ -32,12 +31,12 @@ export class AnimateLineComponent {
   
   
   mySceneFinishedHandler() { 
-    if(this.autoPlay &&  this.curIndex < this.vm.snapshots.length){
+    if(this.autoPlay &&  this.curIndex < this.vm.snapshots.length-1){
       this.curIndex++;
     }
-      
-     //to fire an event:
-     this.onSceneCompleted.emit();
+    else if (this.curIndex == this.vm.snapshots.length-1) {
+
+    }
   }
   /**
    *  advance frame by 1

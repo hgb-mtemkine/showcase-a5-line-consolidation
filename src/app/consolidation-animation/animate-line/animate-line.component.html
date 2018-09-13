@@ -1,11 +1,11 @@
 <!-- <pre>{{ vm | json }} </pre> -->
 
-<div class="control-panel">
+<div class="control-panel" [hidden]="hideControls">
   <button (click)="curIndex = curIndex - 1">-</button>
   <button (click)="curIndex = curIndex + 1">+</button>
   <span>{{ curIndex }}</span>
 </div>
-<blah-animate-line-singleframe [vm]="vm.snapshots[curIndex]" (onSceneCompleted)="mySceneFinishedHandler()"></blah-animate-line-singleframe>
+<blah-animate-line-singleframe [vm]="vm.snapshots[curIndex]" [autoPlay]="true" (onSceneCompleted)="mySceneFinishedHandler()"></blah-animate-line-singleframe>
 
 
 
