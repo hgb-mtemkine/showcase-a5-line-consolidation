@@ -11,6 +11,8 @@ import { MyMovieAct } from './my-models';
 })
 export class WernickeMovieComponent implements OnInit, OnChanges {
 
+  readonly DelayDone = 1000;
+
   readonly MyMovieAct = MyMovieAct;
 
   public curAct: MyMovieAct = MyMovieAct.None;
@@ -33,6 +35,12 @@ export class WernickeMovieComponent implements OnInit, OnChanges {
 
   act1AnimationFinished() {
     this.curAct = MyMovieAct.Act2;
+  }
+
+  act2AnimationFinished() {
+    setTimeout(() => {
+      this.onMovieDone.emit();
+    }, this.DelayDone);
   }
 
 

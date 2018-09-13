@@ -12,6 +12,11 @@
     ></my-log-animated>
   </div>
   <div *ngIf="curAct == MyMovieAct.Act2">
-    <blah-animate-line [vm]="vm.Act2" [autoPlay]="true" [hideControls]="true"></blah-animate-line>
+    <blah-animate-line
+      [vm]="vm.Act2"
+      [autoPlay]="true"
+      [hideControls]="true"
+      (onAnimationFinished)="act2AnimationFinished()"
+    ></blah-animate-line>
   </div>
 </div>

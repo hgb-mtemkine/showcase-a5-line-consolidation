@@ -15,7 +15,8 @@ export class AnimateLineComponent {
   autoPlay: boolean = false;
   @Input()
   autoStartDelay: number = 0;
-
+  @Output()
+  onAnimationFinished = new EventEmitter<void>();
 
   public curIndex: number;
 
@@ -35,7 +36,7 @@ export class AnimateLineComponent {
       this.curIndex++;
     }
     else if (this.curIndex == this.vm.snapshots.length-1) {
-
+      this.onAnimationFinished.emit();
     }
   }
   /**

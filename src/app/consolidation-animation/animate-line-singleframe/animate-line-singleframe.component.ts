@@ -13,6 +13,8 @@ import { LineConsolidationSingleLineVM } from './my-models';
 })
 export class AnimateLineSingleframeComponent implements OnChanges {
 
+  readonly SceneDuration = 2000;
+
   readonly LineConsolidationAction = LineConsolidationAction;
 
   @Input()
@@ -56,7 +58,7 @@ export class AnimateLineSingleframeComponent implements OnChanges {
     if (this.autoPlay) {
       setTimeout(() => {
         this.onSceneCompleted.emit();
-      }, 2000)
+      }, this.SceneDuration)
     }
 
 
