@@ -32,4 +32,9 @@ export class LocalJsonDataService {
     return this.resolveWithJsonFile(WernickeMovieVM, this.SampleDebugVm);
   }
 
+  public getMovieJsonByFilename(filename: string): Promise<WernickeMovieVM> {
+    return this.resolveWithJsonFile(WernickeMovieVM, `./assets/json/${filename}`);
+  }
+
+
 }

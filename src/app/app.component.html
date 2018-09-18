@@ -1,8 +1,13 @@
 <div class="container">
   
   <h1>Understanding extraction demo</h1>
-  
-  <blah-wernicke-movie [vm]="movieVm"></blah-wernicke-movie>
+
+  <blah-wernicke-movie-playlist
+    [crawLogFrameDelay]="70"
+    [crawLogNSkipFrameFF]="1"
+    [crawLogSlomoTimeoutMax]="50"
+    [act1StartDelay]="2000"
+  ></blah-wernicke-movie-playlist>
 
 </div>
 

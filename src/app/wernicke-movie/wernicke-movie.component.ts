@@ -3,6 +3,8 @@ import { Component, Input, Output, OnInit, OnChanges, EventEmitter } from '@angu
 import { WernickeMovieVM } from 'app/models/movie-vm';
 
 import { MyMovieAct } from './my-models';
+import { LocalJsonDataService } from 'app/services/local-json.service';
+
 
 @Component({
   selector: 'blah-wernicke-movie',
@@ -19,6 +21,15 @@ export class WernickeMovieComponent implements OnInit, OnChanges {
 
   @Input()
   vm: WernickeMovieVM;
+
+  @Input()
+  crawLogFrameDelay: number = 3;
+  @Input()
+  crawLogNSkipFrameFF: number = 15;
+  @Input()
+  crawLogSlomoTimeoutMax: number = 50;
+  @Input()
+  act1StartDelay: number = 0;
 
   @Output()
   onMovieDone = new EventEmitter<void>();
@@ -42,6 +53,4 @@ export class WernickeMovieComponent implements OnInit, OnChanges {
       this.onMovieDone.emit();
     }, this.DelayDone);
   }
-
-
 }

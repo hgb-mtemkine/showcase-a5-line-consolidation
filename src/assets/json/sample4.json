@@ -1,0 +1,23 @@
+{
+  "Act2": {
+    "snapshots": [{
+      "lines": [
+        "flight --from Bermuda --to Orlando",
+        "datetime --date Tuesday 16 January",
+        "flight --date-return 18 January",
+        "hotel --brand Four Seasons hotel"
+      ],
+      "alterations": [{
+        "index": 0,
+        "action": "Remove"
+      }, {
+        "index": 1,
+        "action": "Modify",
+        "text": "flight --flight-number AA#947 --date Feb 13th"
+      }]
+    }, {
+
+    }]
+  },
+  "Act1": []
+}

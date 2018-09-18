@@ -16,6 +16,27 @@ export class VmMappingService_WernAnimation {
   animate_WernickeCrawlEntries(vm: EXOP.VizVmWernickeLogEntry[]): CrawlLogFrameVM[] {
     let groups = this.animate_WernickeCrawlEntries_group(vm);
     let frames:CrawlLogFrameVM[] = [];
+    let text1 = (groups && groups.length)
+      ? groups[0].crawlStarts[0].start.Text
+      : '';
+    frames.push(<CrawlLogFrameVM>{
+      text: text1,
+      resultRL: <EXOP.VizVmRegionedLineNoOverlap> {
+        Id: '---',
+        Text: text1,
+        RegionsPass3: [],
+        RegionsPass2NonOverlapping: [],
+      },
+      resultRLprev: <EXOP.VizVmRegionedLineNoOverlap> {
+        Id: '---',
+        Text: text1,
+        RegionsPass3: [],
+        RegionsPass2NonOverlapping: [],
+      },
+      offset: 0,
+      span: 0,
+      convergeIndex: 0,
+    });
     groups.forEach(group => {
       group.crawlStarts.forEach(crawlStart => {
         crawlStart.crawls.forEach(attempt => {

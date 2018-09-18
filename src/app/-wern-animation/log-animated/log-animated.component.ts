@@ -23,6 +23,11 @@ export class LogAnimatedComponent implements OnInit, OnChanges {
   autoStartDelay: number = 0;
   @Input()
   frameDelay: number = 3;
+  @Input()
+  nSkipFrameFF: number = 15;
+  @Input()
+  slomoTimeoutMax: number = 50;
+
   @Output()
   onAnimationFinished = new EventEmitter<void>();
   
@@ -63,8 +68,6 @@ export class LogAnimatedComponent implements OnInit, OnChanges {
     }
 
     //----------------- config --------------------
-    const FrameIncFast = 15;
-    const SlomoTimeoutMax = 50;
     const slowDownFrames = [
       Math.floor(0),
       Math.floor(this.frames.length / 4),
@@ -74,7 +77,7 @@ export class LogAnimatedComponent implements OnInit, OnChanges {
     //---------------------------------------------
 
     let slomoTimeout:number = null;
-    let frameInc:number = FrameIncFast;
+    let frameInc:number = this.nSkipFrameFF;
     let framesClozure = this.frames;
     let curSlowdownFrameIndex = 0;
     this.playerThread = setInterval(() => {
@@ -85,12 +88,12 @@ export class LogAnimatedComponent implements OnInit, OnChanges {
       }
       if (this.frameIndex > slowDownFrames[curSlowdownFrameIndex]) {
         frameInc = 1;
-        slomoTimeout = SlomoTimeoutMax;
+        slomoTimeout = this.slomoTimeoutMax;
         curSlowdownFrameIndex++;
       }
       slomoTimeout--;
       if (slomoTimeout <= 0) {
-        frameInc = FrameIncFast;
+        frameInc = this.nSkipFrameFF;
         slomoTimeout = null;
       }
       this.incFrame(frameInc);

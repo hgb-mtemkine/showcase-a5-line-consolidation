@@ -12,12 +12,14 @@ import { LevensteinService } from './services/levenstein.service';
 import { LocalJsonDataService } from './services/local-json.service';
 import { WernickeMovieComponent } from './wernicke-movie/wernicke-movie.component';
 import { WernCrawlAnimationModule } from 'app/-wern-animation/-wern-crawl-animation.module';
+import { WernickeMoviePlaylistComponent } from './wernicke-movie-playlist/wernicke-movie-playlist.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    WernickeMovieComponent
+    WernickeMovieComponent,
+    WernickeMoviePlaylistComponent
   ],
   imports: [
     BrowserModule,
