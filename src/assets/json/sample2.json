@@ -17,8 +17,7 @@
       }]
     }, {
       "lines": [
-        "flight --from Bermuda --to Orlando",
-        "datetime --date Tuesday 16 January",
+        "flight --from Bermuda --to Orlando --date Tuesday 16 January",
         "flight --date-return 18 January",
         "hotel --brand Four Seasons hotel"
       ],
